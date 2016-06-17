@@ -29,9 +29,14 @@ public class BuscarCuentas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String dni = request.getParameter("dni");
 		double saldo = request.getParameter("saldo");
-		Repositorio repo = Repositorio.getInstance();
-		Persona persona = repo.getBanco().buscarPersona(dni);
-		persona.cuentasQueSuperan(saldo).size();
+		Persona persona = Repositorio.getInstance().getBanco().buscarPersona(dni);
+		response.setContentType("text/plain");
+		if ( persona != null ) {
+			int cantidad = persona.cuentasQueSuperan(saldo).size();        
+			response.getWriter().write("Superan " + cantidad + " cuentas");
+		} else {
+			response.getWriter().write("No se encontro al cliente");
+		}
 	}
 
 }
