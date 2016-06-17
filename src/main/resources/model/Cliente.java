@@ -3,8 +3,13 @@ package model;
 import java.util.ArrayList;
 
 public class Cliente {
-	public List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	public String nombre;
 	public String dni;
+	public List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	public Cliente(String unNombre,String unDoc){
+		this.nombre = unNombre;
+		this.dni = unDoc;
+	}
 	public String getDni(){
 		return dni;
 	}

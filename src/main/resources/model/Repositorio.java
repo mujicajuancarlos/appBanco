@@ -19,9 +19,10 @@ public class Repositorio {
 	      return instance;
 	   }
 	private void cargarPersonas(){
-		Persona persona;
-		persona = Persona('Juan Mujica',35215452);
-		
-		banco.agregarPersona()
+		Cliente persona = Cliente('Juan Mujica',35215452);
+		persona.agregarCuenta(Cuenta(001,35));
+		persona.agregarCuenta(Cuenta(002,25));
+		persona.agregarCuenta(Cuenta(003,10));
+		banco.agregarPersona();
 	}
 }
